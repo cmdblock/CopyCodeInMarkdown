@@ -5,6 +5,7 @@ A Neovim plugin to quickly copy code blocks in Markdown files.
 ## Features
 
 - Copy fenced code block content with a single keypress
+- Select fenced code block content in visual mode
 - Only works in Markdown files — no interference elsewhere
 - Copies pure code content without ``` markers or language tags
 - Uses Neovim's `+` register (system clipboard)
@@ -24,6 +25,7 @@ A Neovim plugin to quickly copy code blocks in Markdown files.
   ft = "markdown",
   keys = {
     { "<leader>cc", "<cmd>MarkdownCodeCopy<cr>", ft = "markdown", desc = "Copy markdown code block" },
+    { "<leader>cs", "<cmd>MarkdownCodeSelect<cr>", ft = "markdown", desc = "Select markdown code block" },
   },
   config = function()
     require("markdown_code_copy").setup()
@@ -72,10 +74,11 @@ require("markdown_code_copy").setup({
 3. Press your configured keymap (e.g. `<leader>cc`)
 4. The code content is now in your system clipboard
 
-You can also use the command:
+You can also use the commands:
 
 ```vim
-:MarkdownCodeCopy
+:MarkdownCodeCopy   " Copy code block to clipboard
+:MarkdownCodeSelect " Select code block in visual mode
 ```
 
 ## License
